@@ -3,9 +3,19 @@ package com.bridgelabz.employeewagecalculator;
 public class EmployeeWageCalculation {
 	public static final int FULL_TIME=1;
 	public static final int PART_TIME=2;
+	private String companyName;
+	private int employeeWagePerHour;
+	private int numberOfWorkDays;
+	private int maxHours;
 	
 	
-	public static void computeEmployeeWage(String companyName,int employeeWagePerHour,int numberOfWorkDays,int maxHours)
+ EmployeeWageCalculation(String companyName, int employeeWAgePerHour, int numberOfWorkDays, int maxHours) {
+		this.companyName = companyName;
+		this.employeeWagePerHour = employeeWAgePerHour;
+		this.maxHours = maxHours;
+		this.numberOfWorkDays = numberOfWorkDays;
+	}
+	public  void computeEmployeeWage()
 	{
 		int employeeHour=0;
 		int totalEmployeeWage=0;
@@ -32,9 +42,11 @@ public class EmployeeWageCalculation {
 	}
 	
 	public static void main(String[] args) {
-		
-		computeEmployeeWage("TCS",50,15,70);
-		computeEmployeeWage("INFOSYS",51,20,60);
-		computeEmployeeWage("WIPRO",53,17,80);
+		EmployeeWageCalculation tcs = new EmployeeWageCalculation("TCS", 20,2,10);
+		EmployeeWageCalculation infosys = new EmployeeWageCalculation("INFOSYS", 10,4,20);
+		EmployeeWageCalculation wipro = new EmployeeWageCalculation("WIPRO", 20,2,10);
+		tcs.computeEmployeeWage();
+		infosys.computeEmployeeWage();
+		wipro.computeEmployeeWage();
 	}
 }
